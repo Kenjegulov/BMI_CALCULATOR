@@ -13,8 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData.dark(),
-      home: const BMICalculator(),
+      theme: ThemeData(),
+      // home: MyHomePage(),
+      home: BMICalculator(),
     );
   }
 }

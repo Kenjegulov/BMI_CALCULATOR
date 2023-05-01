@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lesson08/constants/MyColors.dart';
-import 'package:flutter_lesson08/widgets/MyCard.dart';
+import 'package:flutter_lesson08/models/age.dart';
+import 'package:flutter_lesson08/models/female.dart';
+import 'package:flutter_lesson08/models/weight.dart';
+import 'package:flutter_lesson08/models/male.dart';
 import 'constants/MyTexts.dart';
+import 'models/height.dart';
 
 class BMICalculator extends StatefulWidget {
   const BMICalculator({super.key});
@@ -11,6 +15,7 @@ class BMICalculator extends StatefulWidget {
 }
 
 class _BMICalculatorState extends State<BMICalculator> {
+  bool genderTest = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,50 +26,42 @@ class _BMICalculatorState extends State<BMICalculator> {
         elevation: 0,
       ),
       body: const Padding(
-        padding: EdgeInsets.only(left: 21, right: 21, top: 32, bottom: 41),
+        padding: EdgeInsets.only(left: 21, right: 21, top: 39, bottom: 41),
         child: Column(
           children: [
             Expanded(
               child: Row(
                 children: [
                   Expanded(
-                    child: MyCard(myIcon: Icons.male, myText: "Male"),
+                    child: Male(),
                   ),
-                  SizedBox(
-                    width: 39,
-                  ),
+                  SizedBox(width: 35),
                   Expanded(
-                    child: MyCard(myIcon: Icons.female, myText: "Female"),
+                    child: Female(),
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: 18,
-            ),
+            SizedBox(height: 18),
             Expanded(
               child: Row(
                 children: [
                   Expanded(
-                    child: MyCard(myIcon: Icons.male, myText: "Male"),
+                    child: Height(),
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: 18,
-            ),
+            SizedBox(height: 18),
             Expanded(
               child: Row(
                 children: [
                   Expanded(
-                    child: MyCard(myIcon: Icons.male, myText: "Male"),
+                    child: Weight(),
                   ),
-                  SizedBox(
-                    width: 39,
-                  ),
+                  SizedBox(width: 35),
                   Expanded(
-                    child: MyCard(myIcon: Icons.female, myText: "Female"),
+                    child: Age(),
                   ),
                 ],
               ),
