@@ -11,14 +11,16 @@ class Female extends StatefulWidget {
 class _FemaleState extends State<Female> {
   @override
   Widget build(BuildContext context) {
-    return const Card(
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       color: MyColor.bacbackgroundColorCard,
-      child: Center(
+      child: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.female, size: 80),
-            Text("Female", style: TextStyle(fontSize: 18)),
+            Text("Female",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
           ],
         ),
       ),

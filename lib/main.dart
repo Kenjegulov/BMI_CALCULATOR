@@ -13,8 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(),
-      // home: MyHomePage(),
+      theme: ThemeData.dark(),
       home: BMICalculator(),
     );
   }

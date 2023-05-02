@@ -15,7 +15,7 @@ class BMICalculator extends StatefulWidget {
 }
 
 class _BMICalculatorState extends State<BMICalculator> {
-  bool genderTest = true;
+  String gender = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
