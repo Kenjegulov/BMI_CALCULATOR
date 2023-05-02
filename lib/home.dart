@@ -4,6 +4,7 @@ import 'package:flutter_lesson08/models/age.dart';
 import 'package:flutter_lesson08/models/female.dart';
 import 'package:flutter_lesson08/models/weight.dart';
 import 'package:flutter_lesson08/models/male.dart';
+import 'package:flutter_lesson08/result.dart';
 import 'constants/MyTexts.dart';
 import 'models/height.dart';
 
@@ -25,25 +26,52 @@ class _BMICalculatorState extends State<BMICalculator> {
         title: const Center(child: MyText.bmi),
         elevation: 0,
       ),
-      body: const Padding(
-        padding: EdgeInsets.only(left: 21, right: 21, top: 39, bottom: 41),
+      body: Padding(
+        padding:
+            const EdgeInsets.only(left: 21, right: 21, top: 39, bottom: 41),
         child: Column(
           children: [
             Expanded(
               child: Row(
                 children: [
-                  Expanded(
-                    child: Male(),
-                  ),
-                  SizedBox(width: 35),
-                  Expanded(
-                    child: Female(),
-                  ),
+                  if (gender == "" || gender == "male")
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            gender = "male";
+                          });
+                        },
+                        onTapCancel: () {
+                          setState(() {
+                            gender = "";
+                          });
+                        },
+                        child: Male(),
+                      ),
+                    ),
+                  SizedBox(width: gender == "" ? 35 : 0),
+                  if (gender == "" || gender == "female")
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            gender = "female";
+                          });
+                        },
+                        onTapCancel: () {
+                          setState(() {
+                            gender = "";
+                          });
+                        },
+                        child: Female(),
+                      ),
+                    ),
                 ],
               ),
             ),
-            SizedBox(height: 18),
-            Expanded(
+            const SizedBox(height: 18),
+            const Expanded(
               child: Row(
                 children: [
                   Expanded(
@@ -52,8 +80,8 @@ class _BMICalculatorState extends State<BMICalculator> {
                 ],
               ),
             ),
-            SizedBox(height: 18),
-            Expanded(
+            const SizedBox(height: 18),
+            const Expanded(
               child: Row(
                 children: [
                   Expanded(
@@ -69,11 +97,26 @@ class _BMICalculatorState extends State<BMICalculator> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        width: double.infinity,
-        height: 73,
-        color: MyColor.pink,
-        child: const Center(child: MyText.calculator),
+      bottomNavigationBar: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Result(
+                height: 180,
+                weight: 60,
+                gender: gender,
+                age: 21,
+              ),
+            ),
+          );
+        },
+        child: Container(
+          width: double.infinity,
+          height: 73,
+          color: MyColor.pink,
+          child: const Center(child: MyText.calculator),
+        ),
       ),
     );
   }
