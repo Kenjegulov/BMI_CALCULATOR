@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lesson08/data.dart';
 import '../constants/MyColors.dart';
 
 class Age extends StatefulWidget {
@@ -9,7 +10,7 @@ class Age extends StatefulWidget {
 }
 
 class _AgeState extends State<Age> {
-  int number = 18;
+  int age = 18;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -20,11 +21,11 @@ class _AgeState extends State<Age> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "WEIGHT",
+              "AGE",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
             ),
             Text(
-              "$number",
+              "$age",
               style: const TextStyle(fontSize: 40, fontWeight: FontWeight.w800),
             ),
             Row(
@@ -37,7 +38,8 @@ class _AgeState extends State<Age> {
                     backgroundColor: MyColor.grey,
                     onPressed: () {
                       setState(() {
-                        number++;
+                        age++;
+                        MyData.age = age;
                       });
                     },
                     child: const Icon(Icons.add, color: MyColor.white),
@@ -53,7 +55,8 @@ class _AgeState extends State<Age> {
                     backgroundColor: MyColor.grey,
                     onPressed: () {
                       setState(() {
-                        number--;
+                        age--;
+                        MyData.age = age;
                       });
                     },
                     child: const Icon(Icons.remove, color: MyColor.white),

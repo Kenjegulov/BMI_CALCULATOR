@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lesson08/constants/MyColors.dart';
+import 'package:flutter_lesson08/data.dart';
 
 class Result extends StatefulWidget {
-  const Result(
-      {super.key,
-      required this.height,
-      required this.weight,
-      required this.gender,
-      required this.age});
-  final int height;
-  final int weight;
-  final String gender;
-  final int age;
+  const Result({super.key});
   @override
   State<Result> createState() => _ResultState();
 }
@@ -20,10 +12,26 @@ class _ResultState extends State<Result> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: const [Icon(Icons.preview)],
+        title: const Text("Ден соолук индексы (BMI)"),
+      ),
       backgroundColor: MyColor.bacbackgroundColor,
       body: Card(
-        child: Text(
-            "${widget.height}\n${widget.weight}\n${widget.gender}\n${widget.age}"),
+        borderOnForeground: true,
+        semanticContainer: true,
+        margin:
+            const EdgeInsets.only(left: 20, right: 100, top: 30, bottom: 30),
+        child: Expanded(
+          child: Column(
+            children: [
+              Text("${MyData.age}"),
+              Text("${MyData.height}"),
+              Text("${MyData.weight}"),
+              Text(MyData.gender),
+            ],
+          ),
+        ),
       ),
     );
   }

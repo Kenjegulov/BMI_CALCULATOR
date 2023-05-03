@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lesson08/data.dart';
 import '../constants/MyColors.dart';
 
 class Weight extends StatefulWidget {
@@ -9,7 +10,7 @@ class Weight extends StatefulWidget {
 }
 
 class _WeightState extends State<Weight> {
-  int number = 60;
+  int weight = 60;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -24,7 +25,7 @@ class _WeightState extends State<Weight> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
             ),
             Text(
-              "$number",
+              "$weight",
               style: const TextStyle(fontSize: 40, fontWeight: FontWeight.w800),
             ),
             Row(
@@ -37,7 +38,8 @@ class _WeightState extends State<Weight> {
                     backgroundColor: MyColor.grey,
                     onPressed: () {
                       setState(() {
-                        number++;
+                        weight++;
+                        MyData.weight = weight;
                       });
                     },
                     child: const Icon(Icons.add, color: MyColor.white),
@@ -53,7 +55,8 @@ class _WeightState extends State<Weight> {
                     backgroundColor: MyColor.grey,
                     onPressed: () {
                       setState(() {
-                        number--;
+                        weight--;
+                        MyData.weight = weight;
                       });
                     },
                     child: const Icon(Icons.remove, color: MyColor.white),

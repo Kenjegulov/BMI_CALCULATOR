@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lesson08/constants/MyColors.dart';
+import 'package:flutter_lesson08/data.dart';
 import 'package:flutter_lesson08/models/age.dart';
 import 'package:flutter_lesson08/models/female.dart';
 import 'package:flutter_lesson08/models/weight.dart';
@@ -40,6 +41,7 @@ class _BMICalculatorState extends State<BMICalculator> {
                         onTap: () {
                           setState(() {
                             gender = "male";
+                            MyData.gender = "male";
                           });
                         },
                         onTapCancel: () {
@@ -57,6 +59,7 @@ class _BMICalculatorState extends State<BMICalculator> {
                         onTap: () {
                           setState(() {
                             gender = "female";
+                            MyData.gender = "female";
                           });
                         },
                         onTapCancel: () {
@@ -102,12 +105,7 @@ class _BMICalculatorState extends State<BMICalculator> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Result(
-                height: 180,
-                weight: 60,
-                gender: gender,
-                age: 21,
-              ),
+              builder: (context) => const Result(),
             ),
           );
         },
