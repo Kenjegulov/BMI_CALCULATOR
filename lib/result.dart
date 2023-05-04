@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_lesson08/constants/MyColors.dart';
 import 'package:flutter_lesson08/data.dart';
@@ -9,6 +11,7 @@ class Result extends StatefulWidget {
 }
 
 class _ResultState extends State<Result> {
+  num bmi = MyData.weight / pow(MyData.height / 100, 2);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,19 +21,16 @@ class _ResultState extends State<Result> {
       ),
       backgroundColor: MyColor.bacbackgroundColor,
       body: Card(
-        borderOnForeground: true,
-        semanticContainer: true,
-        margin:
-            const EdgeInsets.only(left: 20, right: 100, top: 30, bottom: 30),
-        child: Expanded(
-          child: Column(
-            children: [
-              Text("${MyData.age}"),
-              Text("${MyData.height}"),
-              Text("${MyData.weight}"),
-              Text(MyData.gender),
-            ],
-          ),
+        margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 50),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("${MyData.age}"),
+            Text("${MyData.height}"),
+            Text("${MyData.weight}"),
+            Text(MyData.gender),
+            Text("$bmi"),
+          ],
         ),
       ),
     );
