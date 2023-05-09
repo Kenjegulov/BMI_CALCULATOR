@@ -10,4 +10,11 @@ class MyText {
     "CALCULATOR",
     style: TextStyle(fontSize: 22),
   );
+  static const recalculate = Text(
+    "Кайра эсепте",
+    style: TextStyle(
+      fontSize: 22,
+      fontWeight: FontWeight.w500,
+    ),
+  );
 }

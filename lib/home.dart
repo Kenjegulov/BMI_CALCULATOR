@@ -101,6 +101,13 @@ class _BMICalculatorState extends State<BMICalculator> {
         ),
       ),
       bottomNavigationBar: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: MyColor.pink,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.zero),
+          ),
+          minimumSize: const Size(double.infinity, 73),
+        ),
         onPressed: () {
           Navigator.push(
             context,
@@ -109,12 +116,7 @@ class _BMICalculatorState extends State<BMICalculator> {
             ),
           );
         },
-        child: Container(
-          width: double.infinity,
-          height: 73,
-          color: MyColor.pink,
-          child: const Center(child: MyText.calculator),
-        ),
+        child: MyText.calculator,
       ),
     );
   }
